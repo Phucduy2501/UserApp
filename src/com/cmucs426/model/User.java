@@ -10,5 +10,11 @@ public class User {
     
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
-    public void updateEmail(String newEmail) { this.email = email; }
+    public void updateEmail(String newEmail) {
+        if (newEmail != null && newEmail.contains("@")) {
+            this.email = newEmail;
+        } else {
+            throw new IllegalArgumentException("Email không hợp lệ!");
+        }
+    }
  }
